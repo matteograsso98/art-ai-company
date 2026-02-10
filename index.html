@@ -3,248 +3,244 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Art × AI × Startup — Matteo</title>
-  <meta name="description" content="Looking for partners to explore AI-generated posters & prints and start a company together." />
+  <title>Matteo — Art, AI, Startup</title>
+  <meta name="description" content="Matteo — looking for partners to explore AI-generated posters & prints." />
+
   <style>
     :root{
-      --bg:#0b1220;
-      --card:#0f1a33;
-      --text:#eaf0ff;
-      --muted:#b9c6ff;
+      --text:#eef4ff;
+      --muted:rgba(238,244,255,.78);
       --accent:#3aa0ff;
-      --line:rgba(255,255,255,.10);
+      --line:rgba(255,255,255,.16);
+      --panel:rgba(9,14,26,.58);
+      --panel2:rgba(9,14,26,.40);
+      --shadow: 0 18px 45px rgba(0,0,0,.45);
+      --radius:18px;
     }
+
     *{box-sizing:border-box}
+
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 700px at 20% -10%, rgba(58,160,255,.25), transparent 60%),
-                  radial-gradient(900px 600px at 110% 10%, rgba(58,160,255,.18), transparent 55%),
-                  var(--bg);
       color:var(--text);
-      line-height:1.55;
+      line-height:1.6;
+
+      /* Background image (place munch-bg.jpeg next to this HTML) */
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.60), rgba(0,0,0,.68)),
+        url("munch-bg.jpeg") center/cover no-repeat fixed;
+      min-height:100vh;
     }
+
     a{color:var(--accent); text-decoration:none}
     a:hover{text-decoration:underline}
-    .wrap{max-width:920px; margin:0 auto; padding:28px 18px 60px}
-    .hero{
-      border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(15,26,51,.92), rgba(15,26,51,.72));
-      border-radius:18px;
-      padding:26px 22px;
-      box-shadow: 0 12px 35px rgba(0,0,0,.35);
+
+    .wrap{
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 26px 16px 64px;
     }
-    .kicker{
-      display:inline-block;
-      padding:6px 10px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      color:var(--muted);
-      font-size:13px;
-      letter-spacing:.2px;
-      margin-bottom:14px;
-    }
-    h1{margin:0 0 8px; font-size:30px; line-height:1.15}
-    .sub{margin:0; color:var(--muted); max-width:72ch}
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:14px;
-      margin-top:16px;
-    }
-    @media (min-width:820px){
-      .grid{grid-template-columns: 1fr 1fr}
-    }
-    .card{
-      border:1px solid var(--line);
-      background: rgba(15,26,51,.55);
-      border-radius:16px;
-      padding:16px 16px 14px;
-    }
-    .card h2{margin:0 0 8px; font-size:18px}
-    .card p{margin:0 0 10px; color:var(--muted)}
-    ul{margin:10px 0 0 18px; color:var(--muted)}
-    li{margin:6px 0}
-    .cta{
-      margin-top:16px;
+
+    .topbar{
       display:flex;
-      flex-wrap:wrap;
       gap:10px;
+      flex-wrap:wrap;
       align-items:center;
+      justify-content:flex-start;
+
+      padding:14px;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
     }
+
     .btn{
       display:inline-block;
       padding:10px 14px;
       border-radius:12px;
-      border:1px solid rgba(58,160,255,.45);
-      background: rgba(58,160,255,.15);
+      border:1px solid rgba(58,160,255,.50);
+      background: rgba(58,160,255,.18);
       color:var(--text);
-      font-weight:600;
+      font-weight:700;
     }
-    .btn:hover{background: rgba(58,160,255,.22); text-decoration:none}
-    .ghost{
+    .btn:hover{background: rgba(58,160,255,.26); text-decoration:none}
+
+    .btn.ghost{
       border:1px solid var(--line);
-      background: transparent;
-      color:var(--muted);
-      font-weight:600;
+      background: rgba(255,255,255,.05);
+      color: rgba(238,244,255,.88);
+      font-weight:700;
     }
-    .footer{
-      margin-top:22px;
-      color:rgba(234,240,255,.62);
-      font-size:13px;
+    .btn.ghost:hover{background: rgba(255,255,255,.08);}
+
+    .hint{
+      margin-left:auto;
+      color: var(--muted);
+      font-size: 13px;
     }
-    .hr{height:1px; background:var(--line); margin:14px 0}
-    .quote{
-      border-left:3px solid rgba(58,160,255,.55);
-      padding-left:12px;
-      color:var(--muted);
+
+    .panel{
+      margin-top:14px;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel2);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+      overflow:hidden;
+    }
+
+    details{
+      border-top:1px solid var(--line);
+    }
+    details:first-child{
+      border-top:none;
+    }
+
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding:16px 16px;
+      font-weight:800;
+      letter-spacing:.1px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      user-select:none;
+    }
+
+    summary::-webkit-details-marker{display:none}
+
+    .chev{
+      width:10px; height:10px;
+      border-right:2px solid rgba(238,244,255,.75);
+      border-bottom:2px solid rgba(238,244,255,.75);
+      transform: rotate(-45deg);
+      transition: transform .18s ease;
+      margin-left:auto;
+      opacity:.9;
+    }
+    details[open] .chev{
+      transform: rotate(45deg);
+    }
+
+    .content{
+      padding:0 16px 18px;
+      color: var(--muted);
+    }
+
+    .content p{
       margin:10px 0 0;
+      white-space:pre-wrap; /* preserves your original line breaks */
     }
-    .small{font-size:13px; color:rgba(234,240,255,.68)}
-    .pill{
-      display:inline-block;
-      font-size:12px;
-      padding:4px 8px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      color:rgba(234,240,255,.70);
-      margin-left:8px;
+
+    .footer{
+      margin-top:14px;
+      color: rgba(238,244,255,.65);
+      font-size: 13px;
+      padding: 0 2px;
+      text-shadow: 0 1px 2px rgba(0,0,0,.35);
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <section class="hero">
-      <div class="kicker">Art × AI × Startup</div>
-      <h1>Let’s explore AI-generated posters — together</h1>
-      <p class="sub">
-        I’m looking for partners (not employees) to experiment with AI for contemporary posters/prints and, if it works, build a company around it.
-      </p>
 
-      <div class="cta">
-        <a class="btn" href="mailto:Matteo.gra98@gmail.com?subject=Art%20x%20AI%20x%20Startup">Email Matteo</a>
-        <a class="btn ghost" href="#the-idea">Read the idea</a>
-        <a class="btn ghost" href="#quick-form">5-second form</a>
-      </div>
+    <!-- Starts directly with the two buttons -->
+    <div class="topbar">
+      <a class="btn" href="mailto:Matteo.gra98@gmail.com?subject=Art%20x%20AI%20x%20Startup">Email Matteo</a>
 
-      <div class="grid">
-        <div class="card">
-          <h2>Who I am</h2>
+      <a class="btn ghost"
+         href="https://docs.google.com/forms/d/e/1FAIpQLSd9TziPL6TC30iwN0wP3Bj6zzYy16wILqyxCIJm0NYcszFKdw/viewform?usp=header"
+         target="_blank" rel="noopener">
+        5s form
+      </a>
+
+      <div class="hint">Open the toggles below to read more</div>
+    </div>
+
+    <!-- Toggle list (no boxes/sections) -->
+    <div class="panel">
+
+      <details open>
+        <summary>
+          Full text
+          <span class="chev" aria-hidden="true"></span>
+        </summary>
+        <div class="content">
+          <p>I am Matteo, I am 27-years-old and lately I have been thinking to start a business. I like art, I like going to exhibitions and my favourite artist is Munch. 
+I am graduated in theoretical physics, I did some research in cosmology, then neuroscience. Now I'm working in R&amp;D in the space telecommunication sector.  I have some (but not as much as I would love to) experience in ML/AI. I keep myself updated through newsletter (I suggest TDLR AI), and I code stuff on my own when I have an idea in mind. Be aware that I am not a code jargon though!
+
+Perhaps because of my passion, I also like a lot posters and contemporary prints. My curiosity, hopefully a business soon, is to see whether artificial intelligence is able to generate posters and prints in the style of drool art (link), Santo manifesto (link), desenio (link), etc., but of course cutting down the costs! Although there are a lot of data (loads of posters online), I guess this won't be easy as it seems. That's why I need you! 
+
+I do believe that 1) sharing this experience together is better than building alone 2) that you are better than me at AI/ML!
+
+So far, the idea I got is to sell posters such that they are (really) affordable to everyone. A rough business idea may be print on demand (POD) to cut down personal costs, and to find a way to sell poster with a low margin (this way we can set a lower price to customers, say 5-6 Euros for an A4 poster). If the model works, we will cut down costs related to artists, and essentially we can generate our posters for free and sell them with a low margin.  The other idea is that we may sell our software (to generate posters) to major competitors for a much higher price. Of course, if it works..
+
+I know that 1) there are a lot of competitors / people already selling posters / arts 2) the idea may be a little bit dumb. However, re. 1) as far as I know there's no ai model working at the desired quality (link above for ref.) 2) usually the idea when you start a business counts until a certain extent. I guess the most important think is the desire and excitement and commitment to make something together/start a company; the idea will likely change over time if we are not stupid stupid.
+
+Also, I know that people can buy art because they like the real (human) work behind it. I do not disagree on that, and I do not either want to not collaborate with artists.
+
+Last, but not least, I need to specify this is not a job offer. As I said, I am looking for partners to start a company with. I won't be the owner, we will be. As a consequence, there's no salary at this stage (neither for myself) because there's no company. 
+
+I don't know who you are, but I'm looking forward to hear from you. 
+
+Ciao,
+Matteo</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          References (links)
+          <span class="chev" aria-hidden="true"></span>
+        </summary>
+        <div class="content">
           <p>
-            Ciao! I’m <strong>Matteo</strong>, 27. I like art, exhibitions, and my favorite artist is <strong>Munch</strong>.
-            I graduated in <strong>theoretical physics</strong>, did research in <strong>cosmology</strong>, then <strong>neuroscience</strong>.
-            Now I work in <strong>R&amp;D</strong> in the <strong>space telecommunications</strong> sector.
-          </p>
-          <p>
-            I have some experience in <strong>ML/AI</strong> (not as much as I’d love), and I keep myself updated through newsletters
-            (I recommend <em>TLDR AI</em>). I also code things when I have an idea — but fair warning: I’m not a heavy code-jargon person 🙂
+            Drool Art:
+            <a href="https://drool-art.com/?srsltid=AfmBOoqX7yDkM__f395CLUrhhZFGi2guoY_mFr-96GGXAqVBlo0BbOuM" target="_blank" rel="noopener">
+              https://drool-art.com/
+            </a>
+            <br/>
+            Santo Manifesto:
+            <a href="https://santomanifesto.it/?utm_source=google&utm_medium=paid&utm_campaign=21376890398&utm_content=162173193823&utm_term=santomanifesto&gadid=702164045202&gad_source=1&gad_campaignid=21376890398&gbraid=0AAAAAp83h-BlXFWhYmDwd0QC0wSMBTItb&gclid=CjwKCAiAqKbMBhBmEiwAZ3UboM0ZrvbsbO7VQs1mjeajGC6EwZtW1F52bVD4-pgkBLlSkoHJdnQbkBoCWxEQAvD_BwE" target="_blank" rel="noopener">
+              https://santomanifesto.it/
+            </a>
+            <br/>
+            Desenio:
+            <a href="https://desenio.it/?utm_source=google&utm_medium=cpc&utm_campaign=DD%20%7C%20IT%20%7C%20S%20%7C%20Brand&gad_source=1&gad_campaignid=968882125&gbraid=0AAAAADFqILnlE6Z0atrW9-KS3XPkLnYdy&gclid=CjwKCAiAqKbMBhBmEiwAZ3UboDUnb9EGKtbrEGxp06yayOGWshfyLAImVcr-MQY2D56S634e8HkuihoCBk0QAvD_BwE" target="_blank" rel="noopener">
+              https://desenio.it/
+            </a>
           </p>
         </div>
+      </details>
 
-        <div class="card">
-          <h2>Why I’m posting this</h2>
+      <details>
+        <summary>
+          Contact
+          <span class="chev" aria-hidden="true"></span>
+        </summary>
+        <div class="content">
           <p>
-            I’m fascinated by posters and contemporary prints. I’m curious whether AI can generate posters at a quality level similar to:
-          </p>
-          <ul>
-            <li><a href="https://drool-art.com/?srsltid=AfmBOoqX7yDkM__f395CLUrhhZFGi2guoY_mFr-96GGXAqVBlo0BbOuM" target="_blank" rel="noopener">Drool Art</a></li>
-            <li><a href="https://santomanifesto.it/?utm_source=google&utm_medium=paid&utm_campaign=21376890398&utm_content=162173193823&utm_term=santomanifesto&gadid=702164045202&gad_source=1&gad_campaignid=21376890398&gbraid=0AAAAAp83h-BlXFWhYmDwd0QC0wSMBTItb&gclid=CjwKCAiAqKbMBhBmEiwAZ3UboM0ZrvbsbO7VQs1mjeajGC6EwZtW1F52bVD4-pgkBLlSkoHJdnQbkBoCWxEQAvD_BwE" target="_blank" rel="noopener">Santo Manifesto</a></li>
-            <li><a href="https://desenio.it/?utm_source=google&utm_medium=cpc&utm_campaign=DD%20%7C%20IT%20%7C%20S%20%7C%20Brand&gad_source=1&gad_campaignid=968882125&gbraid=0AAAAADFqILnlE6Z0atrW9-KS3XPkLnYdy&gclid=CjwKCAiAqKbMBhBmEiwAZ3UboDUnb9EGKtbrEGxp06yayOGWshfyLAImVcr-MQY2D56S634e8HkuihoCBk0QAvD_BwE" target="_blank" rel="noopener">Desenio</a></li>
-          </ul>
-          <p class="quote">
-            There’s lots of data online (tons of posters), but I don’t think it’s as easy as it sounds. That’s why I need you.
+            Email: <a href="mailto:Matteo.gra98@gmail.com?subject=Art%20x%20AI%20x%20Startup">Matteo.gra98@gmail.com</a><br/>
+            5s form:
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSd9TziPL6TC30iwN0wP3Bj6zzYy16wILqyxCIJm0NYcszFKdw/viewform?usp=header"
+               target="_blank" rel="noopener">
+              Google Form
+            </a>
           </p>
         </div>
-      </div>
+      </details>
 
-      <div class="hr"></div>
+    </div>
 
-      <div class="card" id="the-idea">
-        <h2>The idea (roughly)</h2>
-        <p>
-          I believe that: (1) building this together is better than doing it alone, and (2) you might be better than me at AI/ML.
-        </p>
-        <p>
-          A first direction could be selling posters that are <strong>truly affordable</strong>.
-          For example, a print-on-demand (POD) model to reduce upfront costs, and selling with low margins to keep prices low
-          (e.g., <strong>€5–€6</strong> for an A4 poster).
-        </p>
-        <p>
-          If it works, one advantage is reducing the cost of content creation — potentially generating posters at scale.
-          Another direction (longer-term) could be licensing/selling the poster-generation software to bigger players, if it becomes strong enough.
-        </p>
-        <p class="small">
-          Note: I’m not saying “AI replaces artists”. People buy art for the human work behind it — and I agree.
-          I’m also open to collaborating with artists rather than avoiding them.
-        </p>
-      </div>
+    <div class="footer">
+      Background image: add <strong>munch-bg.jpeg</strong> next to <strong>index.html</strong> in your GitHub Pages repo.
+    </div>
 
-      <div class="grid">
-        <div class="card">
-          <h2>Reality check</h2>
-          <p>
-            I know: (1) there are many competitors in posters/prints, and (2) the idea could be dumb.
-            But from what I’ve seen, there isn’t yet an AI model that consistently hits the desired quality (see references above).
-          </p>
-          <p>
-            And honestly, the initial idea matters only up to a point — what matters more is the desire, excitement, and commitment
-            to build something together. The idea will evolve if we’re not… you know… <em>stupid-stupid</em>.
-          </p>
-        </div>
-
-        <div class="card">
-          <h2>Important: not a job offer</h2>
-          <p>
-            This is <strong>not</strong> a job posting. I’m looking for <strong>partners</strong> to start a company with.
-            I won’t be “the owner” — <strong>we will be</strong>.
-          </p>
-          <p>
-            That also means: at this stage there’s <strong>no salary</strong> (for you or for me), because there’s no company yet.
-          </p>
-        </div>
-      </div>
-
-      <div class="hr"></div>
-
-      <div class="card" id="quick-form">
-        <h2>5-second form <span class="pill">optional</span></h2>
-        <p>
-          If you’re interested, you can either email me or fill this super short form (it takes ~5 seconds):
-        </p>
-
-        <p>
-          <a class="btn"
-             href="https://docs.google.com/forms/d/e/1FAIpQLSd9TziPL6TC30iwN0wP3Bj6zzYy16wILqyxCIJm0NYcszFKdw/viewform?usp=header"
-             target="_blank" rel="noopener">
-            Open the 5-second form
-          </a>
-        </p>
-
-        <p class="small">
-          Tip (for the form): keep it to Name + Email + 1 multiple-choice (AI/ML / Design / Business / Curious).
-        </p>
-      </div>
-
-      <div class="hr"></div>
-
-      <div class="card">
-        <h2>Let’s talk</h2>
-        <p>
-          If any of this resonates with you — whether you’re into AI/ML, design, business, or just curious — I’d love to hear from you.
-        </p>
-        <p><strong>Ciao,</strong><br/>Matteo</p>
-
-        <div class="cta">
-          <a class="btn" href="mailto:Matteo.gra98@gmail.com?subject=Art%20x%20AI%20x%20Startup">Email Matteo</a>
-          <a class="btn ghost" href="#the-idea">Back to idea</a>
-        </div>
-      </div>
-
-      <p class="footer">
-        Hosting suggestion: GitHub Pages or Netlify. Once hosted, your QR code should point to the hosted URL (not to a local file).
-      </p>
-    </section>
   </div>
 </body>
 </html>
