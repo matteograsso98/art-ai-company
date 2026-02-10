@@ -67,7 +67,9 @@
       font-weight:700;
     }
     .btn:hover{background: rgba(58,160,255,.26); text-decoration:none}
-
+    .btn.manifesto {
+  letter-spacing: .5px; 
+    }
     .btn.ghost{
       border:1px solid var(--line);
       background: rgba(255,255,255,.05);
@@ -143,8 +145,52 @@
       padding: 0 2px;
       text-shadow: 0 1px 2px rgba(0,0,0,.35);
     }
+
+    .manifesto-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  cursor:pointer;
+}
+
+  .manifesto-modal img{
+    max-width:90vw;
+    max-height:90vh;
+    box-shadow: 0 25px 60px rgba(0,0,0,.6);
+    border-radius: 6px;
+  }
+  
+  .manifesto-close{
+    position:absolute;
+    top:20px;
+    right:26px;
+    font-size:36px;
+    color:#fff;
+    font-weight:700;
+    cursor:pointer;
+  }
   </style>
 </head>
+
+<!-- Manifesto modal -->
+<div id="manifestoModal" class="manifesto-modal" onclick="closeManifesto()">
+  <span class="manifesto-close">&times;</span>
+  <img src="85be5892-2803-4f31-9ebe-803c0cc65178.png" alt="Manifesto">
+</div>
+
+<script>
+  function openManifesto() {
+    document.getElementById('manifestoModal').style.display = 'flex';
+  }
+
+  function closeManifesto() {
+    document.getElementById('manifestoModal').style.display = 'none';
+  }
+</script>
 
 <body>
   <div class="wrap">
@@ -159,6 +205,7 @@
          Google Form (it takes 10 seconds)
       </a>
 
+      <a class="btn ghost manifesto" href="#" onclick="openManifesto()">Manifesto</a>
     </div>
 
     <!-- Toggle list (no boxes/sections) -->
