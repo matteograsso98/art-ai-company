@@ -68,7 +68,7 @@
     }
     .btn:hover{background: rgba(58,160,255,.26); text-decoration:none}
     .btn.manifesto {
-  letter-spacing: .5px; 
+      letter-spacing: .5px; 
     }
     .btn.ghost{
       border:1px solid var(--line);
@@ -82,6 +82,20 @@
       margin-left:auto;
       color: var(--muted);
       font-size: 13px;
+    }
+
+    /* Project tagline */
+    .tagline{
+      margin-top:14px;
+      padding: 14px 18px;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
     }
 
     .panel{
@@ -147,32 +161,47 @@
     }
 
     .manifesto-modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.85);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
-  cursor:pointer;
-}
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.85);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:9999;
+      cursor:pointer;
+    }
 
-  .manifesto-modal img{
-    max-width:90vw;
-    max-height:90vh;
-    box-shadow: 0 25px 60px rgba(0,0,0,.6);
-    border-radius: 6px;
-  }
-  
-  .manifesto-close{
-    position:absolute;
-    top:20px;
-    right:26px;
-    font-size:36px;
-    color:#fff;
-    font-weight:700;
-    cursor:pointer;
-  }
+    .manifesto-modal img{
+      max-width:90vw;
+      max-height:90vh;
+      box-shadow: 0 25px 60px rgba(0,0,0,.6);
+      border-radius: 6px;
+    }
+
+    .manifesto-close{
+      position:absolute;
+      top:20px;
+      right:26px;
+      font-size:36px;
+      color:#fff;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    /* Role tag pills */
+    .role-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      padding: 2px 9px;
+      border-radius: 20px;
+      margin-right: 4px;
+    }
+    .role-design { background: rgba(255,160,80,.18); border: 1px solid rgba(255,160,80,.45); color: rgba(255,200,140,.95); }
+    .role-ai     { background: rgba(80,200,160,.18); border: 1px solid rgba(80,200,160,.45); color: rgba(140,230,200,.95); }
+    .role-me     { background: rgba(58,160,255,.18);  border: 1px solid rgba(58,160,255,.45);  color: rgba(140,200,255,.95); }
   </style>
 </head>
 
@@ -195,7 +224,7 @@
 <body>
   <div class="wrap">
 
-    <!-- Starts directly with the two buttons -->
+    <!-- Top buttons -->
     <div class="topbar">
       <a class="btn" href="mailto:Matteo.gra98@gmail.com?subject=Art%20x%20AI%20x%20Startup">Email me :) </a>
 
@@ -205,30 +234,73 @@
          Google Form (Takes 10s)
       </a>
 
-      <a class="btn ghost manifesto" href="xxxx_manifesto.png" onclick="openManifesto()">Manifesto</a>
+      <a class="btn ghost manifesto" href="xxxx_manifesto.png" onclick="openManifesto(); return false;">Manifesto</a>
     </div>
 
-    <!-- Toggle list (no boxes/sections) -->
+    <!-- Project tagline -->
+    <div class="tagline">
+      We're building a startup at the intersection of art and AI — using generative models to create affordable, high-quality posters and prints inspired by studios like Drool Art and Santo Manifesto.
+      We're looking for two co-founders (an AI/ML engineer and a graphic designer/illustrator) to build this together, from scratch, as equal partners.
+    </div>
+
+    <!-- Toggle sections -->
     <div class="panel">
-     <details open>
-  <summary>
-    <span class="chev" aria-hidden="true"></span>
-  </summary>
-  <div class="content">
-    <p>
+
+      <!-- Section 1: Graphic Designer / Illustrator -->
+      <details>
+        <summary>
+          <span class="role-tag role-design">Open role</span>
+          × Graphic Designer / Illustrator
+          <span class="chev" aria-hidden="true"></span>
+        </summary>
+        <div class="content">
+          <p>
+[To be filled with the job description for the graphic designer / illustrator role.]
+          </p>
+        </div>
+      </details>
+
+      <!-- Section 2: AI Engineer -->
+      <details>
+        <summary>
+          <span class="role-tag role-ai">Open role</span>
+          × AI Engineer
+          <span class="chev" aria-hidden="true"></span>
+        </summary>
+        <div class="content">
+          <p>
+[To be filled with the job description for the AI / ML engineer role.]
+          </p>
+        </div>
+      </details>
+
+      <!-- Section 3: Who I am -->
+      <details open>
+        <summary>
+          <span class="role-tag role-me">About</span>
+          Who I am
+          <span class="chev" aria-hidden="true"></span>
+        </summary>
+        <div class="content">
+          <p>
 I am Matteo, I am 27 years old, and lately I have been thinking about starting a business. I like art, I like going to exhibitions, and my favourite artist is Munch.
 I graduated in theoretical physics, then did some research in cosmology, and later in neuroscience. Now I'm working in R&amp;D in space telecommunications. I have some experience (but not as much as I would love to) in ML/AI. I keep myself updated through newsletters (I suggest TLDR AI), and I code things on my own when I have an idea. Be aware that, although I code a lot, I am not a code expert!
 Probably because of my love for art, I also like posters and contemporary prints. My curiosity — and hopefully a business — is to see whether Artificial Intelligence can generate posters or prints in the style of 
 <a href="https://drool-art.com/?srsltid=AfmBOoqX7yDkM__f395CLUrhhZFGi2guoY_mFr-96GGXAqVBlo0BbOuM" target="_blank" rel="noopener">Drool Art</a>, <a href="https://santomanifesto.it/?utm_source=google&utm_medium=paid&utm_campaign=21376890398&utm_content=162173193823&utm_term=santomanifesto&gadid=702164045202&gad_source=1&gad_campaignid=21376890398&gbraid=0AAAAAp83h-BlXFWhYmDwd0QC0wSMBTItb&gclid=CjwKCAiAqKbMBhBmEiwAZ3UboM0ZrvbsbO7VQs1mjeajGC6EwZtW1F52bVD4-pgkBLlSkoHJdnQbkBoCWxEQAvD_BwE" target="_blank" rel="noopener">Santo Manifesto</a>, <a href="https://desenio.it/?utm_source=google&utm_medium=cpc&utm_campaign=DD%20%7C%20IT%20%7C%20Brand&gad_source=1&gad_campaignid=968882125&gbraid=0AAAAADFqILnlE6Z0atrW9-KS3XPkLnYdy&gclid=CjwKCAiAqKbMBhBmEiwAZ3UboDUnb9EGKtbrEGxp06yayOGWshfyLAImVcr-MQY2D56S634e8HkuihoCBk0QAvD_BwE" target="_blank" rel="noopener">Desenio</a>, etc., cutting down costs.
-Although there is a lot of data available (loads of posters online), I don’t think this will be as easy as it sounds. That’s why I need you. I do believe that (1) sharing this experience together is better than building alone, and (2) you are better than me at AI/ML.
+Although there is a lot of data available (loads of posters online), I don't think this will be as easy as it sounds. That's why I need you. I do believe that (1) sharing this experience together is better than building alone, and (2) you are better than me at AI/ML.
 I am looking for around two co-founders: one person willing to take care of the AI/ML pipeline, and another person focused on design or illustration.
-I have some ideas in mind, but I don’t think it really matters whether we end up selling affordable prints, software to fine-art businesses, or something else entirely. More often than not, the initial business idea will change over time (if we’re not stupid stupid).
+I have some ideas in mind, but I don't think it really matters whether we end up selling affordable prints, software to fine-art businesses, or something else entirely. More often than not, the initial business idea will change over time (if we're not stupid stupid).
 <i>My dream is to build something that resonates with our values, and that people can identify with. </i>
-Last, but not least: <b>this is not a job offer</b>. This is probably the most important part. I am looking for partners to start a company with. I won’t be the owner, *we* will be. As a consequence, there is no salary at this stage (neither for myself), because there is no company yet.
-I don’t know who you are (yet), but I’m really looking forward to hearing from you.
+Last, but not least: <b>this is not a job offer</b>. This is probably the most important part. I am looking for partners to start a company with. I won't be the owner, *we* will be. As a consequence, there is no salary at this stage (neither for myself), because there is no company yet.
+I don't know who you are (yet), but I'm really looking forward to hearing from you.
 
 Matteo
-    </p>
-  </div>
-</details>
+          </p>
+        </div>
+      </details>
 
+    </div><!-- /panel -->
+
+  </div><!-- /wrap -->
+</body>
+</html>
